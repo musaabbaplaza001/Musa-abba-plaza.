@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Musa Abba Plaza | Bajoga</title>
+
+  <meta name="description"
+        content="Musa Abba Plaza - Your trusted business centre in Bajoga. Vet Agro, Barbing Salon and Provision Shop.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #071b33;
+      color: white;
+      padding: 15px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .logo span {
+      color: #f4b329;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 9px;
+      font-weight: normal;
+      color: #ddd;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #f4b329;
+    }
+
+    .nav-button {
+      background: #f4b329;
+      color: #071b33;
+      padding: 10px 18px;
+      border-radius: 7px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 620px;
+      background:
+        linear-gradient(90deg, #071b33 10%, rgba(7,27,51,0.92) 42%, rgba(7,27,51,0.25)),
+        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 70px 7%;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero-line {
+      width: 65px;
+      height: 4px;
+      background: #f4b329;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 82px);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #f4b329;
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 560px;
+      color: #e3e8ef;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn-gold {
+      background: #f4b329;
+      color: #071b33;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #071b33;
+    }
+
+    /* TRUST */
+
+    .trust {
+      background: white;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1100px;
+      margin: -45px auto 0;
+      position: relative;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    .trust-item {
+      padding: 28px;
+      text-align: center;
+      border-right: 1px solid #eee;
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .trust-item h3 {
+      color: #071b33;
+      font-size: 17px;
+    }
+
+    .trust-item p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 85px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title small {
+      color: #d59613;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: #071b33;
+      margin-top: 7px;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: 10px auto;
+      color: #666;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .about-image {
+      min-height: 430px;
+      border-radius: 20px;
+      background:
+        linear-gradient(rgba(7,27,51,0.15), rgba(7,27,51,0.15)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .about-text small {
+      color: #d59613;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .about-text h2 {
+      font-size: 42px;
+      line-height: 1.1;
+      color: #071b33;
+      margin: 12px 0 20px;
+    }
+
+    .about-text h2 span {
+      color: #d59613;
+    }
+
+    .about-text p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .checks {
+      list-style: none;
+      margin: 25px 0;
+    }
+
+    .checks li {
+      margin: 12px 0;
+      font-weight: 600;
+    }
+
+    .checks li::before {
+      content: "✓";
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 23px;
+      height: 23px;
+      background: #f4b329;
+      border-radius: 50%;
+      margin-right: 10px;
+      color: #071b33;
+      font-weight: 900;
+    }
+
+    /* SERVICES */
+
+    .services-section {
+      background: #f0f3f6;
+    }
+
+    .services {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 18px;
+      padding: 35px 28px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+      transition: 0.3s;
+      border-top: 4px solid #f4b329;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.13);
+    }
+
+    .service-icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      color: #071b33;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-auto-rows: 230px;
+      gap: 15px;
+    }
+
+    .gallery div {
+      border-radius: 15px;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .gallery .large {
+      grid-row: span 2;
+      background-image:
+        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85");
+    }
+
+    .gallery .one {
+      background-image:
+        url("https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=800&q=85");
+    }
+
+    .gallery .two {
+      background-image:
+        url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=85");
+    }
+
+    .gallery .three {
+      background-image:
+        url("https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=85");
+    }
+
+    .gallery .four {
+      background-image:
+        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85");
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      background: #071b33;
+      color: white;
+    }
+
+    .contact-section .section-title h2 {
+      color: white;
+    }
+
+    .contact-section .section-title p {
+      color: #c8d1dd;
+    }
+
+    .contact-box {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contact-card {
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .contact-card .icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .contact-card h3 {
+      color: #f4b329;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: #e1e6ec;
+      font-size: 15px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      background: #f4b329;
+      color: #071b33;
+      padding: 60px 20px;
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      margin-bottom: 25px;
+    }
+
+    .cta .btn {
+      background: #071b33;
+      color: white;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #041326;
+      color: white;
+      padding: 55px 7% 20px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+    }
+
+    footer h3 span {
+      color: #f4b329;
+    }
+
+    footer p,
+    footer li {
+      color: #bdc6d2;
+      font-size: 14px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin: 8px 0;
+    }
+
+    footer li a:hover {
+      color: #f4b329;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #9faaba;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 14px 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+        padding: 60px 6%;
+        background:
+          linear-gradient(90deg, #071b33 10%, rgba(7,27,51,0.86)),
+          url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85")
+          center/cover;
+      }
+
+      .hero h1 {
+        font-size: 54px;
+      }
+
+      .hero h2 {
+        font-size: 19px;
+      }
+
+      .trust {
+        margin: -30px 18px 0;
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      .trust-item:last-child {
+        border-bottom: none;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 330px;
+      }
+
+      .about-text h2 {
+        font-size: 35px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 180px;
+      }
+
+      .gallery .large {
+        grid-row: span 2;
+      }
+
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        text-align: center;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery .large {
+        grid-row: span 1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="#home" class="logo">
+      MUSA ABBA <span>PLAZA</span>
+      <small>Your Trusted Business Centre in Bajoga</small>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:09025251886" class="nav-button">☎ Contact Now</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero" id="home">
+    <div class="hero-content">
+
+      <div class="hero-line"></div>
+
+      <h1>
+        MUSA ABBA<br>
+        <span>PLAZA</span>
+      </h1>
+
+      <h2>Your Trusted Business Centre in Bajoga</h2>
+
+      <p>
+        We provide quality products and reliable services
+        for individuals, families and businesses in Bajoga
+        and surrounding communities.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="tel:09025251886" class="btn btn-gold">
+          ☎ Call Now
+        </a>
+
+        <a href="https://wa.me/2347026439523"
+           class="btn btn-outline"
+           target="_blank">
+          💬 Chat on WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- TRUST -->
+
+  <div class="trust">
+
+    <div class="trust-item">
+      <div class="trust-icon">🛡️</div>
+      <h3>Trusted Service</h3>
+      <p>Reliable service for our customers.</p>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-icon">🏆</div>
+      <h3>Quality Products</h3>
+      <p>Quality products at reasonable prices.</p>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-icon">👥</div>
+      <h3>Customer Satisfaction</h3>
+      <p>Our customers are important to us.</p>
+    </div>
+
+  </div>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="about">
+
+      <div class="about-image"></div>
+
+      <div class="about-text">
+
+        <small>ABOUT US</small>
+
+        <h2>
+          Excellence You Can
+          <span>Trust Always</span>
+        </h2>
+
+        <p>
+          Musa Abba Plaza is a multi-purpose business centre
+          located in the heart of Bajoga. We are committed to
+          providing quality products, professional services and
+          excellent customer care.
+        </p>
+
+        <ul class="checks">
+          <li>Modern and comfortable environment</li>
+          <li>Quality products and services</li>
+          <li>Affordable prices</li>
+          <li>Friendly customer service</li>
+          <li>Trusted by our customers</li>
+        </ul>
+
+        <a href="#services" class="btn btn-gold">
+          Explore Our Services →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section class="services-section" id="services">
+
+    <div class="section-title">
+      <small>WHAT WE OFFER</small>
+      <h2>Our Services</h2>
+      <p>
+        Everything you need, conveniently available at Musa Abba Plaza.
+      </p>
+    </div>
+
+    <div class="services">
+
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3>Vet Agro</h3>
+        <p>
+          Veterinary and agricultural products to support
+          healthier animals and better agricultural productivity.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💈</div>
+        <h3>Barbing Salon</h3>
+        <p>
+          Professional haircuts, modern styles and grooming
+          services for a smart and confident appearance.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>Provision Shop</h3>
+        <p>
+          Everyday groceries, household products and essential
+          provisions at convenient prices.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+
+  <section id="gallery">
+
+    <div class="section-title">
+      <small>OUR ENVIRONMENT</small>
+      <h2>Gallery</h2>
+      <p>
+        Take a look at the modern environment and services
+        available at Musa Abba Plaza.
+      </p>
+    </div>
+
+    <div class="gallery">
+
+      <div class="large"></div>
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
+      <div class="four"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact-section" id="contact">
+
+    <div class="section-title">
+
+      <small>GET IN TOUCH</small>
+
+      <h2>We Are Ready to Serve You</h2>
+
+      <p>
+        Contact us for enquiries, orders or any assistance.
+      </p>
+
+    </div>
+
+    <div class="contact-box">
+
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h3>Call Us</h3>
+        <p>09025251886</p>
+        <br>
+        <a href="tel:09025251886" class="btn btn-gold">
+          Call Now
+        </a>
+      </div>
+
+
+      <div class="contact-card">
+        <div class="icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>07026439523</p>
+        <br>
+        <a href="https://wa.me/2347026439523"
+           target="_blank"
+           class="btn btn-gold">
+          Chat Now
+        </a>
+      </div>
+
+
+      <div class="contact-card">
+        <div class="icon">📍</div>
+        <h3>Visit Us</h3>
+        <p>
+          Near Bajoga Satellite Prison,<br>
+          Opposite Muhammadu Mai Doya Guest Palace,<br>
+          Bajoga.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CALL TO ACTION -->
+
+  <section class="cta">
+
+    <h2>Visit Musa Abba Plaza Today!</h2>
+
+    <p>
+      Quality products. Reliable services. Trusted people.
+    </p>
+
+    <a href="tel:09025251886" class="btn">
+      ☎ Contact Musa Abba Plaza
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>MUSA ABBA <span>PLAZA</span></h3>
+
+        <p>
+          Your trusted business centre for quality products
+          and reliable services in Bajoga.
+        </p>
+      </div>
+
+
+      <div>
+        <h3>Quick Links</h3>
+
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+
+      <div>
+        <h3>Our Services</h3>
+
+        <ul>
+          <li>Vet Agro</li>
+          <li>Barbing Salon</li>
+          <li>Provision Shop</li>
+        </ul>
+      </div>
+
+
+      <div>
+        <h3>Contact Info</h3>
+
+        <ul>
+          <li>☎ 09025251886</li>
+          <li>💬 07026439523</li>
+          <li>
+            📍 Near Bajoga Satellite Prison,
+            Opposite Muhammadu Mai Doya Guest Palace
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Musa Abba Plaza. All Rights Reserved.
+      </span>
+
+      <span>
+        Your Trusted Business Centre in Bajoga
+      </span>
+
+    </div>
+
+  </footer>
+
+</body>
+    </html>
